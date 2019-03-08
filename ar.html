@@ -2,12 +2,15 @@
 <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
 <body style='margin : 0px; overflow: hidden;'>
-	<a-scene embedded arjs='sourceType: webcam;'>		
+	<a-scene embedded arjs='sourceType: webcam;'>	
+		<a-assets>
+   		 <img id="boxTexture" src="155197134438800981.png">
+  		</a-assets>
 		<a-marker-camera preset='hiro'>
 			<!--a-plane position='0 0.5 0' material='src:155197134438800981.png'-->
 			<!--a-entity geometry="primitive: plane; width: auto; height: auto" material="color: blue"
 			  text="value: S3 IoT \n Level: 10%"></a-entity-->
-			<a-plane position="0 0.5 0" material='src:155197134438800981.png'
+			<a-plane position="0 0.5 0" src="#boxTexture" rotation="-90 0 0"
              text="align: center; color: green; value: S3 IoT \n Filled: 10%">
 			<a-animation attribute= "scale" dur= "1000" from= "1 1 1" to= "2 2 2" direction= "normal"
 				      easing= "ease-in-out-circ" repeat= "once"></a-animation>
