@@ -22,7 +22,7 @@
 </script>
 
 <body style='margin : 0px; overflow: hidden;'>
-	<a-scene embedded arjs='sourceType: webcam; debugUIEnabled:false detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>	
+	<a-scene embedded arjs='sourceType: webcam; debugUIEnabled:false'>	
 		<a-assets>
    		 <img id="boxTexture" src="155197134438800981.png">
   		</a-assets>
@@ -31,7 +31,7 @@
 			<!--a-entity geometry="primitive: plane; width: auto; height: auto" material="color: blue"
 			  text="value: S3 IoT \n Level: 10%"></a-entity-->
 			<a-plane position="0 0.5 0" src="#boxTexture" rotation="-90 0 0" scale="2 2 2"
-             text="align: center; color: red; value: S3 IoT \n Filled: 59%">
+             text="align: center; color: red; value: S3 IoT \n Filled: 60%">
 			<!--a-animation attribute= "scale" dur= "1000" from= "1 1 1" to= "2 2 2" direction= "normal"
 				      easing= "ease-in-out-circ" loop= "false"></a-animation>-->
 			<a-animation attribute="opacity" dur="1000"
