@@ -29,7 +29,7 @@
 		<a-assets>
    		 <img id="boxTexture" src="155197134438800981.png">
   		</a-assets>
-		<a-marker preset='hiro' registerevents id="animated-marker">
+		<a-marker type='barcode' value='2' registerevents id="animated-marker">
 			<!--a-plane position='0 0.5 0' material='src:155197134438800981.png'-->
 			<!--a-entity geometry="primitive: plane; width: auto; height: auto" material="color: blue"
 			  text="value: S3 IoT \n Level: 10%"></a-entity-->
@@ -43,6 +43,10 @@
 			</a-plane>
 			<!-- <a-marker preset="pattern" type="pattern" url="img/pattern-marker2.patt"> -->
 		</a-marker>
+		<a-marker type='barcode' value='3'>
+            		<a-box position='0 0.5 0' color="grey"></a-box>
+        	</a-marker>
+		
 		<!-- add a simple camera -->
 		<a-entity camera></a-entity>
 	</a-scene>
