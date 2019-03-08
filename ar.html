@@ -25,16 +25,16 @@
 </script>
 
 <body style='margin : 0px; overflow: hidden;'>
-	<a-scene embedded arjs='sourceType: webcam; debugUIEnabled:false'>	
+	<a-scene embedded arjs='sourceType: webcam; trackingMethod: best; debugUIEnabled:false'>	
 		<a-assets>
    		 <img id="boxTexture" src="155197134438800981.png">
   		</a-assets>
-		<a-marker-camera preset='hiro' registerevents id="animated-marker">
+		<a-marker preset='hiro' registerevents id="animated-marker">
 			<!--a-plane position='0 0.5 0' material='src:155197134438800981.png'-->
 			<!--a-entity geometry="primitive: plane; width: auto; height: auto" material="color: blue"
 			  text="value: S3 IoT \n Level: 10%"></a-entity-->
 			<a-plane position="0 0.5 0" id="bin" src="#boxTexture" rotation="-90 0 0" scale="2 2 2"
-             text="align: center; color: red; value: S3 IoT \n Filled: 61%">
+             text="align: center; color: red; value: S3 IoT \n Filled: 60%">
 			<!--a-animation attribute= "scale" dur= "1000" from= "1 1 1" to= "2 2 2" direction= "normal"
 				      easing= "ease-in-out-circ" loop= "false"></a-animation>-->
 			<a-animation attribute="opacity" dur="1000"
@@ -42,7 +42,7 @@
 			<!--a-entity position="0 0 -1" text="width: 2; lineHeight: 50; letterSpacing: 5; color: white;value: "S3 IoT \n Temp: 30.5"></a-entity>-->
 			</a-plane>
 			<!-- <a-marker preset="pattern" type="pattern" url="img/pattern-marker2.patt"> -->
-		</a-marker-camera>
+		</a-marker>
 		<!-- add a simple camera -->
 		<a-entity camera></a-entity>
 	</a-scene>
