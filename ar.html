@@ -3,25 +3,23 @@
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
 <!-- Register an aframe component that allows reacting to marker events -->
 <script>
-	AFRAME.registerComponent('registerevents', {
-		init: function () {
-			var marker = this.el;
-			marker.addEventListener('markerFound', function() {
-				var markerId = marker.id;
-				console.log('markerFound', markerId);
-				const entity = document.querySelector('#bin');
-				entity.setAttribute('scale', '5 5 5');
-				// TODO: Add your own code here to react to the marker being found.
-			});
-			marker.addEventListener('markerLost', function() {
-				var markerId = marker.id;
-				console.log('markerLost', markerId);
-				const entity = document.querySelector('#bin');
-				entity.setAttribute('scale', '1 1 1');
-				// TODO: Add your own code here to react to the marker being lost.
-			});
-		}
-	});
+	// register our component
+	AFRAME.registerComponent('markerhandler', {
+
+	    init: function() {
+		const animatedMarker = document.querySelector("#animated-marker");
+
+		animatedMarker.addEventListener('click', function(ev){
+		    if (animatedMarker.object3D.visible == true && ev.detail.cursorEl) {
+			const entity = document.querySelector('#animated-model');
+			const scale = entity.getAttribute('scale');
+			Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
+
+			// every click, we make our model grow in size
+			entity.setAttribute('scale', scale);
+		    }
+		});
+	}});
 </script>
 
 <body style='margin : 0px; overflow: hidden;'>
@@ -29,17 +27,14 @@
 		<a-assets>
    		 <img id="boxTexture" src="155197134438800981.png">
   		</a-assets>
-		<a-marker type='barcode' value='2' registerevents id="animated-marker">
+		<a-marker preset="hiro" markerhandler id="animated-marker">
 			<!--a-plane position='0 0.5 0' material='src:155197134438800981.png'-->
 			<!--a-entity geometry="primitive: plane; width: auto; height: auto" material="color: blue"
 			  text="value: S3 IoT \n Level: 10%"></a-entity-->
-			<a-plane position="0 0.5 0" id="bin" src="#boxTexture" rotation="-90 0 0" scale="2 2 2"
+			<a-plane id="#animated-model" position="0 0.5 0" id="bin" src="#boxTexture" rotation="-90 0 0" scale="2 2 2"
              text="align: center; color: red; value: S3 IoT \n Filled: 71%">
-			<!--a-animation attribute= "scale" dur= "1000" from= "1 1 1" to= "2 2 2" direction= "normal"
-				      easing= "ease-in-out-circ" loop= "false"></a-animation>-->
 			<a-animation attribute="opacity" dur="1000"
                                   easing="linear" from= "0" to= "1"</a-animation>
-			<!--a-entity position="0 0 -1" text="width: 2; lineHeight: 50; letterSpacing: 5; color: white;value: "S3 IoT \n Temp: 30.5"></a-entity>-->
 			</a-plane>
 			<!-- <a-marker preset="pattern" type="pattern" url="img/pattern-marker2.patt"> -->
 		</a-marker>
