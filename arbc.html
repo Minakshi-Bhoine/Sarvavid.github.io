@@ -14,7 +14,7 @@
             const txtLevel = document.querySelector("#txtLevel");    
             animatedMarker.addEventListener('markerFound', function(ev){
                 console.log('markerFound');
-                if (animatedMarker.object3D.visible == true && ev.detail.cursorEl) {
+                if (animatedMarker.object3D.visible == true) {
                     //const entity = document.querySelector('#animated-model');
                     //const scale = entity.getAttribute('scale');
                     //Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
@@ -22,6 +22,16 @@
                     //entity.setAttribute('scale', scale);
                     console.log(txtLevel);
                     txtLevel.setAttribute('visible', 'true');
+                }
+            });
+            animatedMarker.addEventListener('click', function(ev){
+                console.log('markerClicked');
+                if (animatedMarker.object3D.visible == true && ev.detail.cursorEl) {
+                    const entity = document.querySelector('#animated-model');
+                    const scale = entity.getAttribute('scale');
+                    Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
+                    // every click, we make our model grow in size
+                    entity.setAttribute('scale', scale);
                 }
             });
         }});
