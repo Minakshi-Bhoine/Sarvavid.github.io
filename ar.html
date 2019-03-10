@@ -1,58 +1,68 @@
-<!-- AR.js by @jerome_etienne - github: https://github.com/jeromeetienne/ar.js - info: https://medium.com/arjs/augmented-reality-in-10-lines-of-html-4e193ea9fdbf -->
-<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
-<!-- Register an aframe component that allows reacting to marker events -->
-<script>
-	// register our component
-	AFRAME.registerComponent('markerhandler', {
+<!doctype HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    </head>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script>
+        // register our component
+        AFRAME.registerComponent('markerhandler', {
+            init: function() {
+            const animatedMarker = document.querySelector("#animated-marker");
+            const txtLevel = document.querySelector("#txtLevel");    
+            animatedMarker.addEventListener('markerFound', function(ev){
+                console.log('markerFound');
+                if (animatedMarker.object3D.visible == true) {
+                    //const entity = document.querySelector('#animated-model');
+                    //const scale = entity.getAttribute('scale');
+                    //Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
+                    //// every click, we make our model grow in size
+                    //entity.setAttribute('scale', scale);
+                    txtLevel.setAttribute('visible', 'true');
+                }
+            });
+                
+            animatedMarker.addEventListener('markerLost', function(ev){
+                console.log('markerLost');
+                if (animatedMarker.object3D.visible == false) {
+                    txtLevel.setAttribute('visible', 'false');
+                }
+            });
+            animatedMarker.addEventListener('click', function(ev){
+                console.log('markerClicked');
+                if (animatedMarker.object3D.visible == true && ev.detail.cursorEl) {
+                    const entity = document.querySelector('#animated-model');
+                    const scale = entity.getAttribute('scale');
+                    Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
+                    // every click, we make our model grow in size
+                    entity.setAttribute('scale', scale);
+                }
+            });
+        }});
+    </script>
+    <body style='margin : 0px; overflow: hidden;'>
+        <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 
-	    init: function() {
-		const animatedMarker = document.querySelector("#animated-marker");
+        <a-assets>
+            <img id="boxTexture" src="155197134438800981.png">
+        </a-assets>
 
-		animatedMarker.addEventListener('click', function(ev){
-		    if (animatedMarker.object3D.visible == true && ev.detail.cursorEl) {
-			const entity = document.querySelector('#animated-model');
-			const scale = entity.getAttribute('scale');
-			Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
-
-			// every click, we make our model grow in size
-			entity.setAttribute('scale', scale);
-		    }
-		});
-	}});
-</script>
-
-<body style='margin : 0px; overflow: hidden;'>
-	<a-scene embedded arjs='sourceType: webcam; trackingMethod: best; debugUIEnabled:false' detectionMode: mono_and_matrix; matrixCodeType: 3x3;>	
-		<a-assets>
-   		 <img id="boxTexture" src="155197134438800981.png">
-		 <a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
-  		</a-assets>
-		<a-marker preset="hiro" markerhandler id="animated-marker1">
-			<!--a-plane position='0 0.5 0' material='src:155197134438800981.png'-->
-			<!--a-entity geometry="primitive: plane; width: auto; height: auto" material="color: blue"
-			  text="value: S3 IoT \n Level: 10%"></a-entity-->
-			<a-plane id="#animated-model" position="0 0.5 0" id="bin" src="#boxTexture" rotation="-90 0 0" scale="2 2 2"
-             text="align: center; color: red; value: S3 IoT \n Filled: 71%">
-			<a-animation attribute="opacity" dur="1000"
-                                  easing="linear" from= "0" to= "1"</a-animation>
-			</a-plane>
-			<!-- <a-marker preset="pattern" type="pattern" url="img/pattern-marker2.patt"> -->
-		</a-marker>
-		
-	<a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" id="animated-marker" preset='hiro'>
-            <a-entity
-                id="animated-model"
-                gltf-model="#animated-asset"
-                scale="2">
-            </a-entity>
+        <a-marker type='barcode' value='4'>
+            <a-box position='0 0.5 0' color="blue"></a-box>
         </a-marker>
 
-		<a-marker type='barcode' value='4'>
-            		<a-box position='0 0.5 0' color="red"></a-box>
-        	</a-marker>
-		
-		<!-- add a simple camera -->
-		<a-entity camera></a-entity>
-	</a-scene>
-</body>
+        <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" id="animated-marker" preset='hiro'>
+            <a-plane id="#animated-model" position="0 0.5 0" id="bin" src="#boxTexture" rotation="-90 0 0" scale="2 2 2"
+             text="align: center; color: red; value: S3 IoT \n Filled: 71%">
+         </a-marker>
+            <!--rotation: x--front/back rotation y-- z-- clockwise/anticlockwise rotation  -->
+            <!-- scale="0.3 0.2 0.3" rotation="90 90 -90" position="0 -1 0"> -->
+        <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
+       <a-entity id="txtLevel" visible="false" position="-0.94496 1.27105 -5.27042" id="txtLevel" text__txtlevel="value:S3 IoT\nLevel 70%;width:5;color:#000;transparent:false;align:center;side:double"></a-entity>
+        <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+</html>
