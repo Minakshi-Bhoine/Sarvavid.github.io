@@ -24,6 +24,14 @@
                     txtLevel.setAttribute('visible', 'true');
                 }
             });
+                
+            animatedMarker.addEventListener('markerLost', function(ev){
+                console.log('markerFound');
+                if (animatedMarker.object3D.visible == true) {
+                    console.log(txtLevel);
+                    txtLevel.setAttribute('visible', 'false');
+                }
+            });
             animatedMarker.addEventListener('click', function(ev){
                 console.log('markerClicked');
                 if (animatedMarker.object3D.visible == true && ev.detail.cursorEl) {
@@ -57,7 +65,7 @@
             <!--rotation: x--front/back rotation y-- z-- clockwise/anticlockwise rotation  -->
             <!-- scale="0.3 0.2 0.3" rotation="90 90 -90" position="0 -1 0"> -->
         <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
-        <a-entity visible="false" position="-0.32349 3.25498 -1.73338" id="txtLevel" text__txtlevel="value:S3 IoT\nLevel 70%;width:5;color:#000;transparent:false;align:center;side:double" rotation="-90 -90 90"></a-entity>
+       <a-entity position="-0.94496 1.27105 -5.27042" id="txtLevel" text__txtlevel="value:S3 IoT\nLevel 70%;width:5;color:#000;transparent:false;align:center;side:double"></a-entity>
         <a-entity camera></a-entity>
         </a-scene>
     </body>
