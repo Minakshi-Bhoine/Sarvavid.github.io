@@ -6,6 +6,8 @@
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
     <script>
         // register our component
         AFRAME.registerComponent('markerhandler', {
@@ -15,8 +17,10 @@
             animatedMarker.addEventListener('markerFound', function(ev){
                 console.log('markerFound');
                 if (animatedMarker.object3D.visible == true) {
-                    //const entity = document.querySelector('#animated-model');
+                    const entity = document.querySelector('#s3logo');
                     //const scale = txtLevel.getAttribute('scale');
+                    entity.setAttribute('visible', 'true');
+                    entity.play();
                     txtLevel.setAttribute('visible', 'true');
                     //Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
                     //// every click, we make our model grow in size
@@ -64,8 +68,8 @@
             <!--rotation: x--front/back rotation y-- z-- clockwise/anticlockwise rotation  -->
             <!-- scale="0.3 0.2 0.3" rotation="90 90 -90" position="0 -1 0"> -->
         <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
-       <!--a-entity id="txtLevel" visible="false" scale="1 1 1" position="-0.94496 1.27105 -5.27042" id="txtLevel" text__txtlevel="value:S3 IoT\nLevel 70%;width:5;color:#000;transparent:false;align:center;side:double"></a-entity-->
-        <a-plane id="txtLevel" src="#boxTexture" position="-0.94496 1.27105 -5.27042"></a-plane>
+       <a-entity id="txtLevel" visible="false" position="-0.94496 1.27105 -5.27042" id="txtLevel" text__txtlevel="value:S3 IoT\nLevel 70%;width:5;color:#000;transparent:false;align:center;side:double"></a-entity>
+        <a-entity id="s3logo" visible="false" geometry="primitive:plane" material="shader:gif;src:url(S3LogoAnim.gif);" gif=""></a-entity>
         <a-entity camera></a-entity>
         </a-scene>
     </body>
