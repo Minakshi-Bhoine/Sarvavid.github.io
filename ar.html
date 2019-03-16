@@ -11,7 +11,8 @@
         AFRAME.registerComponent('markerhandler', {
             init: function() {
             const animatedMarker = document.querySelector("#animated-marker");
-            const txtLevel = document.querySelector("#txtLevel");    
+            const txtLevel = document.querySelector("#txtLevel");  
+            const entity = document.querySelector('#animated-model');
             animatedMarker.addEventListener('markerFound', function(ev){
                 console.log('markerFound');
                 if (animatedMarker.object3D.visible == true) {
@@ -28,7 +29,7 @@
                 console.log('markerLost');
                 if (animatedMarker.object3D.visible == false) {
                     txtLevel.setAttribute('visible', 'false');
-                    animatedMarker.setAttribute('material.opacity',0);
+                    entity.setAttribute('material.opacity', 0);
                 }
             });
             animatedMarker.addEventListener('click', function(ev){
@@ -58,7 +59,7 @@
         <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" id="animated-marker" preset='hiro'>
             <a-plane id="#animated-model" id="bin" src="#boxTexture" rotation="-90 0 0" scale="2 2 2"
              text="align: center; color: red; value: S3 IoT \n Filled: 71%">
-                <a-animation attribute="material.opacity" from="0" to="1" dur="5000" easing='linear' loop='true'></a-animation-->
+                <a-animation attribute="material.opacity" from="0" to="1" dur="2000" easing='linear' loop='true'></a-animation-->
             </a-plane>
          </a-marker>
             <!--rotation: x--front/back rotation y-- z-- clockwise/anticlockwise rotation  -->
