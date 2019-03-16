@@ -61,9 +61,13 @@
         </a-marker>
 
         <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" id="animated-marker" preset='hiro'>
-            <a-plane id="#animated-model" id="bin" src="#boxTexture" rotation="-90 0 0" scale="2 2 2">
+            <a-plane id="#animated-model1" src="#boxTexture" rotation="-90 0 0" scale="2 2 2" visible:"false">
                 <a-animation attribute="material.opacity" from="0" to="1" dur="3000" easing='linear' loop='true'></a-animation>
             </a-plane>
+            <a-plane mixin="plane" position="0 2 0" id="#animated-model" src="#boxTexture" 
+                     rotation="-90 0 0" scale="0 0 0" 
+                     animation__1="property: scale; to: 1 0.05 1; dur: 500; delay: 500" 
+                     animation__2="property: scale; from: 1 0.05 1; to: 1 1 1; dur: 250; delay: 1000">
          </a-marker>
             <!--rotation: x--front/back rotation y-- z-- clockwise/anticlockwise rotation  -->
             <!-- scale="0.3 0.2 0.3" rotation="90 90 -90" position="0 -1 0"> -->
