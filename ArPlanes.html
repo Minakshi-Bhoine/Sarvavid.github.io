@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="origin-trial" data-feature="WebVR (For Chrome M59+)" data-expires="2017-07-28" content="ArFv1ZeTwzkhjNE00uAE+XtiQB41fwqG/TqlFMLrepd9sforQSvQE/tgfIbUMYNuNre4QR1k4/z8xp2mV3dbhwwAAABeeyJvcmlnaW4iOiJodHRwczovL2FmcmFtZS5pbzo0NDMiLCJmZWF0dXJlIjoiV2ViVlIxLjEiLCJleHBpcnkiOjE1MDEyMTcwMDIsImlzU3ViZG9tYWluIjp0cnVlfQ==">
+	<meta charset="utf-8">
+	<title>Animations: Plane Reveals</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+	<script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+	<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+</head>
+	<body>
+		<a-scene>
+			<a-assets>
+				<a-mixin id="plane" geometry="height: 1; width: 4"></a-mixin>
+				<img id="background" src="../../assets/img/gray-gradient.jpg">
+			</a-assets>
+
+			<a-entity position="-2 -1 -7" rotation="0 35 0">
+				<a-plane id="test" mixin="plane" position="0 6 0" color="#F16745" scale="1 0 1" animation="property: object3D.scale.y; to: 1; dur: 750; delay: 500"></a-plane>
+				<a-plane mixin="plane" position="0 4 0" color="#7BC8A4" scale="0 1 1" animation="property: scale; to: 1 1 1; dur: 750; delay: 500">
+				</a-plane>
+				<a-plane mixin="plane" position="0 2 0" color="#4CC3D9" scale="0 0 0" animation__1="property: scale; to: 1 0.05 1; dur: 500; delay: 500" animation__2="property: scale; from: 1 0.05 1; to: 1 1 1; dur: 250; delay: 1000">
+				</a-plane>
+				<a-plane mixin="plane" color="#EF2D5E" rotation="90 0 0" animation="property: rotation; from: 90 0 0; to: 0 0 0; dur: 750; delay: 500">
+				</a-plane>
+			</a-entity>
+			<a-sky src="#background"></a-sky>
+			<a-light type="directional" color="#fff" intensity="0.2" position="-1 2 1"></a-light>
+			<a-light type="ambient" color="#fff"></a-light>
+		</a-scene>
+	</body>
+</html>
+
