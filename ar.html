@@ -46,29 +46,25 @@
     </script>
     <body style='margin : 0px; overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-        <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+       <a-scene arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;" class="fullscreen" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="" aframe-inspector-removed-embedded="undefined"><canvas class="a-canvas" data-aframe-canvas="true" width="300" height="150"></canvas>
 
         <a-assets>
             <img id="boxTexture" src="155197134438800981.png">
             <a-mixin id="plane" geometry="height: 1; width: 4"></a-mixin>
         </a-assets>
 
-        <a-marker type='barcode' value='4'>
-            <a-box position='0 0.5 0' color="blue"></a-box>
+        <a-marker type="barcode" value="4" visible="false" material="" arjs-anchor="" arjs-hit-testing="">
+            <a-box position="0 0.5 0" color="blue" material="" geometry=""></a-box>
         </a-marker>
 
-        <a-marker markerhandler emitevents="true" cursor="fuse: false; rayOrigin: mouse" id="animated-marker" preset='hiro'>
-            <a-plane id="#animated-model" src="#boxTexture" rotation="-90 0 0" scale="2 2 2"
-             text="align: center; color: red; value: S3 IoT \n Filled: 71%">
-                <a-animation attribute="material.opacity" from="0" to="1" dur="2000" easing='linear' loop='true'></a-animation>
+        <a-marker markerhandler="" emitevents="true" cursor="rayOrigin:mouse" id="animated-marker" preset="hiro" position="-0.9358400476064449 -1.1133313004276988 -5.834347957912677" rotation="80.08413523126531 -177.6469177456411 -178.33672424195854" scale="0.9999996081696144 0.9999999151693382 0.9999996928428482" material="" arjs-hit-testing="" raycaster="useWorldCoordinates:true;direction:0.13324875264527947 0.25584589903675303 -0.9574902849974785">
+            <a-plane id="#animated-model" src="#boxTexture" rotation="-90 0 0" scale="2 2 2" text="align:center;color:red;value:S3 IoT \n Filled: 71%" material="" geometry="">
+                <a-animation attribute="material.opacity" from="0" to="1" dur="2000" easing="linear" loop="true"></a-animation>
             </a-plane>
            <!--a-entity position="-0.1088 0.14702 -1.74915" rotation="-10 0 -20"-->
            
-           <a-entity position="-0.1 -1 -1.5" rotation="-10 6 -20" mixin="plane" scale="0.5 0.5 0.5"
-                     material="color:#fefefe;depthWrite:false;opacity:0.5;height:100" geometry="width:5;height:1.5">
-                <a-ring color="#ff8c00" radius-inner="1" radius-outer="2" position="-1.5 0 0" scale="0.5 0.5 0.5" 
-                    material="" geometry="radiusInner:1.2;radiusOuter:1.4" text__txtvalue="value:70%;
-                      height:10;width:20;align:center;lineHeight:1;color:#fff;transparent:false;zOffset:0">
+           <a-entity position="-0.1035 -0.99025 -1.76561" rotation="-90 2 -3.0000000000000004" mixin="plane" scale="0.5 0.5 0.5" material="color:#444;depthWrite:false;opacity:0.5;height:100" geometry="width:5;height:1.5;primitive:plane">
+                <a-ring color="#ff8c00" radius-inner="1" radius-outer="2" position="-1.5 0 0" scale="0.5 0.5 0.5" material="" geometry="radiusInner:1.2;radiusOuter:1.4" text__txtvalue="value:70%;height:10;width:20;align:center;lineHeight:1;color:#fff;transparent:false;zOffset:0">
                     <a-animation attribute="color" from="#bebebe" to="#FF8C00" dur="500" easing="linear" loop="true">
                     </a-animation>
                     <a-animation easing="ease-in" attribute="geometry.thetaLength" dur="700" fill="forwards" from="0" to="360">
@@ -80,7 +76,7 @@
             <!-- scale="0.3 0.2 0.3" rotation="90 90 -90" position="0 -1 0"> -->
         <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
        <a-entity id="txtLevel" position="1.10327 1.19202 -5.11582" text__txtlevel="value:S3 IoT\nLevel 70%;width:5;color:#000;transparent:false;align:center;side:double" scale="0.5 0.5 0.5"></a-entity>
-            <a-entity camera></a-entity>
+            <a-entity camera="" position="-0.46092 0.03289 0.01341" data-aframe-inspector-original-camera=""></a-entity>
         </a-scene>
     </body>
 </html>
