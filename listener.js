@@ -45,7 +45,5 @@ function onConnectionLost(responseObject) {
 }
 
 function onFailure(responseObject) {
-    if (responseObject.errorCode === 8) {
         console.log("onFailure errorCode/errorMessage: " + responseObject.errorCode + "/" + responseObject.errorMessage);
-    }
 }
