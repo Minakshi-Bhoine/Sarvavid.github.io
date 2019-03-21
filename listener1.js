@@ -30,5 +30,5 @@ function mqClient_onConnectionLost(responseObject) {
  // called when a message arrives
 function mqClient_onMessageArrived(message) {
   console.log("onMessageArrived:"+message.payloadString);
-   document.write(message.payloadString);   
+   //document.write(message.payloadString);   
 }
