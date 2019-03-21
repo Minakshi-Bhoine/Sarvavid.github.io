@@ -47,6 +47,7 @@
     <body style='margin : 0px; overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
        <a-scene arjs="sourceType: webcam; debugUIEnabled: false; trackingMethod: best;">
+                
       
         <a-assets>
             <img id="boxTexture" src="155197134438800981.png">
@@ -57,14 +58,14 @@
             <a-box position="0 0.5 0" color="blue" material="" geometry=""></a-box>
         </a-marker>
 
-        <a-marker markerhandler="" emitevents="true" id="animated-marker" preset="hiro" position="-1.135682197136273 -0.8997118228608241 -5.015155055332444" rotation="86.0315792733332 179.55493846888228 -175.10575443439538" scale="1.0000000968382403 1.0000000201049795 0.9999999823993319" material="" arjs-hit-testing="">
+        <a-marker markerhandler="" emitevents="true" id="animated-marker" preset="hiro" position="-0.5898254174552273 -0.6245551355834943 -8.586560279248934" rotation="88.90637561992219 159.79954100607003 164.9755410245415" scale="0.9999999776234925 0.9999999634480737 0.9999998884141803" material="" arjs-hit-testing="">
             <!--a-plane id="#animated-model" src="#boxTexture" rotation="-90 0 0" scale="2 2 2" text="align:center;color:red;value:S3 IoT \n Filled: 71%" material="" geometry="">
                 <a-animation attribute="material.opacity" from="0" to="1" dur="2000" easing="linear" loop="true"></a-animation>
             </a-plane>
            <!--a-entity position="-0.1088 0.14702 -1.74915" rotation="-10 0 -20"-->
                     
                 <a-entity position="-0.45491 -0.9854 -1.55056" rotation="-90 2 -1.88" mixin="plane" scale="0.5 0.5 0.5" material="color:#333;depthWrite:false;opacity:0.5;height:100" geometry="width:3.5;height:1.5;primitive:plane">
-                    <a-ring color="#ff8c00" radius-inner="1" radius-outer="2" position="-0.936 -0.00564 0.70929" scale="0.5 0.5 0.5" material="" geometry="radiusInner:0.8;radiusOuter:0.9" text__txtvalue="value:70%;height:8;width:15;align:center;lineHeight:1;color:#fff;transparent:false;zOffset:0" text__lastfill="value:Last Full On \n 20 March 2019;anchor:align;width:12;lineHeight:60;letterSpacing:2;opacity:2;xOffset:1.04" text__title="value:Bin 01\n\n\n\n;align:center;anchor:align;xOffset:2.8;width:13;zOffset:0;lineHeight:55;letterSpacing:2;opacity:2;color:orange">
+                    <a-ring color="#ff8c00" radius-inner="1" radius-outer="2" position="-0.936 -0.126 0.70929" scale="0.5 0.5 0.5" material="" geometry="radiusInner:0.8;radiusOuter:0.9" text__txtvalue="value:70%;height:8;width:15;align:center;lineHeight:1;color:#fff;transparent:false;zOffset:0" text__lastfill="value:Last Full On \n 20 March 2019;anchor:align;width:12;lineHeight:60;letterSpacing:2;opacity:2;xOffset:1.04;zOffset:0" text__title="value:Bin 01\n\n\n\n;align:center;anchor:align;xOffset:2.8;width:13;zOffset:0;lineHeight:50;letterSpacing:2;opacity:2;color:orange">
                     <!--a-animation attribute="color" from="#bebebe" to="#FF8C00" dur="500" easing="linear" loop="false"> </a-animation-->
                     <!--a-animation easing="ease-in" attribute="geometry.thetaLength" dur="1000" fill="forwards" from="0" to="360">
                     </a-animation-->
@@ -73,7 +74,7 @@
          </a-marker>
             <!--rotation: x--front/back rotation y-- z-- clockwise/anticlockwise rotation  -->
         <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
-             <a-entity camera="fov:20;near:10" position="-0.0529 1.42676 0.26661" rotation="0 10 0" scale="1 1 2"></a-entity>
+             <a-entity camera="fov:20;near:10" position="-0.08119 1.54485 0.14491" rotation="0 5 0" scale="1 1 2"></a-entity>
         </a-scene>
     </body>
 </html>
