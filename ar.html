@@ -47,6 +47,7 @@
     <body style='margin : 0px; overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
        <a-scene arjs="sourceType: webcam; debugUIEnabled: false; trackingMethod: best;">
+      
         <a-assets>
             <img id="boxTexture" src="155197134438800981.png">
             <a-mixin id="plane" geometry="height: 1; width: 4"></a-mixin>
@@ -56,7 +57,7 @@
             <a-box position="0 0.5 0" color="blue" material="" geometry=""></a-box>
         </a-marker>
 
-        <a-marker markerhandler="" emitevents="true" id="animated-marker" preset="hiro" position="-0.45547451589765653 -0.7908839427734335 -5.111011002707965" rotation="78.86642210246784 174.6950141720387 177.37779021160168" scale="1.000000306085761 1.0000000353962923 0.9999999021304546" material="" arjs-hit-testing="">
+        <a-marker markerhandler="" emitevents="true" id="animated-marker" preset="hiro" position="-1.135682197136273 -0.8997118228608241 -5.015155055332444" rotation="86.0315792733332 179.55493846888228 -175.10575443439538" scale="1.0000000968382403 1.0000000201049795 0.9999999823993319" material="" arjs-hit-testing="">
             <!--a-plane id="#animated-model" src="#boxTexture" rotation="-90 0 0" scale="2 2 2" text="align:center;color:red;value:S3 IoT \n Filled: 71%" material="" geometry="">
                 <a-animation attribute="material.opacity" from="0" to="1" dur="2000" easing="linear" loop="true"></a-animation>
             </a-plane>
@@ -72,7 +73,7 @@
          </a-marker>
             <!--rotation: x--front/back rotation y-- z-- clockwise/anticlockwise rotation  -->
         <!-- use this <a-entity camera> to support multiple-markers, otherwise use <a-marker-camera> instead of </a-marker> -->
-             <a-entity camera="fov:20;near:10" position="-0.22262 0.62439 1.40517"></a-entity>
+             <a-entity camera="fov:20;near:10" position="-0.18645 0.82635 0.304" data-aframe-inspector-original-camera=""></a-entity>
         </a-scene>
     </body>
 </html>
