@@ -1,6 +1,6 @@
 var ip = "mqtt.altairsmartcore.com";
 var port = "8884";
-var usessl = false;
+var usessl = true;
 var id = (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
 var username = 'smartDevice.SmartDevice@sarvavid.sarvavid';
 var password = 'smart123';
