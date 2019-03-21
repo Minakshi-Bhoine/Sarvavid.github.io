@@ -57,24 +57,28 @@
             <a-box position="0 0.5 0" color="blue" material="" geometry=""></a-box>
         </a-marker>
 
-        <a-marker markerhandler="" emitevents="true" cursor="rayOrigin:mouse" id="animated-marker" preset="hiro" position="-0.9358400476064449 -1.1133313004276988 -5.834347957912677" rotation="80.08413523126531 -177.6469177456411 -178.33672424195854" scale="0.9999996081696144 0.9999999151693382 0.9999996928428482" material="" arjs-hit-testing="" raycaster="useWorldCoordinates:true;direction:0.13324875264527947 0.25584589903675303 -0.9574902849974785">
-            <a-plane id="#animated-model" src="#boxTexture" rotation="-90 0 0" scale="2 2 2" text="align:center;color:red;value:S3 IoT \n Filled: 71%" material="" geometry="">
+        <a-marker markerhandler="" emitevents="true" cursor="rayOrigin:mouse" id="animated-marker" 
+                  preset="hiro" position="-0.9358400476064449 -1.1133313004276988 -5.834347957912677" 
+                  rotation="80.08413523126531 -177.6469177456411 -178.33672424195854"
+                  scale="0.9999996081696144 0.9999999151693382 0.9999996928428482">
+            <!--a-plane id="#animated-model" src="#boxTexture" rotation="-90 0 0" scale="2 2 2" text="align:center;color:red;value:S3 IoT \n Filled: 71%" material="" geometry="">
                 <a-animation attribute="material.opacity" from="0" to="1" dur="2000" easing="linear" loop="true"></a-animation>
             </a-plane>
            <!--a-entity position="-0.1088 0.14702 -1.74915" rotation="-10 0 -20"-->
            
            <a-entity position="-0.1035 -0.99025 -1.76561" rotation="-90 2 -3" mixin="plane" scale="0.5 0.5 0.5" material="color:#333;depthWrite:false;opacity:0.5;height:100" geometry="width:5;height:1.5;primitive:plane">
-                <a-ring color="#ff8c00" radius-inner="1" radius-outer="2" position="-1.5 0 0" scale="0.5 0.5 0.5" material="" geometry="radiusInner:1.2;radiusOuter:1.4" text__txtvalue="value:70%;height:10;width:20;align:center;lineHeight:1;color:#fff;transparent:false;zOffset:0">
+                <a-ring color="#ff8c00" radius-inner="1" radius-outer="2" position="-1.5 0 0" 
+                        scale="0.5 0.5 0.5" material="" geometry="radiusInner:1.2;radiusOuter:1.4" 
+                        text__txtvalue="value:70%;height:10;width:20;align:center;lineHeight:1;color:#fff;
+                                        transparent:false;zOffset:0">
                     <!--a-animation attribute="color" from="#bebebe" to="#FF8C00" dur="500" easing="linear" loop="false">
                     </a-animation-->
                     <!--a-animation easing="ease-in" attribute="geometry.thetaLength" dur="1000" fill="forwards" from="0" to="360">
                     </a-animation-->
                  </a-ring>
-                 <a-entity geometry="primitive: plane;"  material="color: #fff"
-                           text="value: Last full on:">
+                 <!--a-entity geometry="primitive: plane;"  material="color: #fff"
+                           text="value: Last full on:"-->
                  </a-entity> 
-                 <a-entity geometry="primitive: plane;"  id="txtLastFill" material="color: #fff"
-                           text="19 March 2019">
                  </a-entity> 
             </a-entity> 
          </a-marker>
