@@ -9,7 +9,7 @@ var message, client;
 var connected = false;
 
 function connectMQTT() {
-    client = new Paho.MQTT.Client(ip, Number(port), id);
+    client = new Paho.Client(ip, Number(port), id);
     client.onConnectionLost = onConnectionLost;
     client.onMessageArrived = onMessageArrived;
     client.connect({
