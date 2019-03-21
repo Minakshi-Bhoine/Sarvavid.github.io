@@ -1,5 +1,5 @@
 
-mqClient = new Paho.MQTT.Client("mqttbroker.altairsmartcore.com", Number(8884), "mqClient"+new Date().getTime());
+var mqClient = new Paho.MQTT.Client("mqttbroker.altairsmartcore.com", Number(8884), "mqClient"+new Date().getTime());
 mqClient.startTrace();
 // set callback handlers
 mqClient.onConnectionLost = mqClient_onConnectionLost;
