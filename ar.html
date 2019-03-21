@@ -69,7 +69,14 @@
            <!--a-entity position="-0.1088 0.14702 -1.74915" rotation="-10 0 -20"-->
                     
                 <a-entity position="-0.45491 -0.9854 -1.55056" rotation="-90 2 -1.88" mixin="plane" scale="0.5 0.5 0.5" material="color:#333;depthWrite:false;opacity:0.5;height:100" geometry="width:3.5;height:1.5;primitive:plane">
-                    <a-ring color="#ff8c00" radius-inner="1" radius-outer="2" position="-0.936 -0.126 0.70929" scale="0.5 0.5 0.5" material="" geometry="radiusInner:0.8;radiusOuter:0.9" text__txtvalue="value:70%;height:8;width:15;align:center;lineHeight:1;color:#fff;transparent:false;zOffset:0" text__lastfill="value:Last Full On \n 20 March 2019;anchor:align;width:12;lineHeight:55;letterSpacing:2;opacity:2;xOffset:1.04;zOffset:0" text__title="value:Bin 01\n\n\n\n;align:center;anchor:align;xOffset:2.8;width:13;zOffset:0;lineHeight:45;letterSpacing:2;opacity:2;color:orange">
+                    <a-ring id="txtLevel" color="#ff8c00" radius-inner="1" radius-outer="2" position="-0.936 -0.126 0.70929" 
+                            scale="0.5 0.5 0.5" material="" geometry="radiusInner:0.8;radiusOuter:0.9" 
+                            text__txtvalue="value:70%;height:8;width:15;align:center;lineHeight:1;color:#fff;
+                                            transparent:false;zOffset:0" 
+                            text__lastfill="value:Last Full On \n 20 March 2019;anchor:align;width:12;
+                                            lineHeight:55;letterSpacing:2;opacity:2;xOffset:1.04;zOffset:0" 
+                            text__title="value:Bin 01\n\n\n\n;align:center;anchor:align;xOffset:2.8;width:13;zOffset:0;
+                                         lineHeight:45;letterSpacing:2;opacity:2;color:orange">
                     <!--a-animation attribute="color" from="#bebebe" to="#FF8C00" dur="500" easing="linear" loop="false"> </a-animation-->
                     <!--a-animation easing="ease-in" attribute="geometry.thetaLength" dur="1000" fill="forwards" from="0" to="360">
                     </a-animation-->
