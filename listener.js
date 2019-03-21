@@ -24,7 +24,7 @@ function connectMQTT() {
 
 function onConnect() {
     console.log("Connected to server");
-    mqClient.subscribe(topic);
+    client.subscribe(topic);
    }
    
 function onMessageArrived(message) {
