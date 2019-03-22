@@ -30,5 +30,10 @@ function mqClient_onConnectionLost(responseObject) {
  // called when a message arrives
 function mqClient_onMessageArrived(message) {
   console.log("onMessageArrived:"+message.payloadString);
-   //document.write(message.payloadString);   
+   //document.write(message.payloadString); 
+  var msg = JSON.parse(message.payloadString);
+  msgBinId = msg["Id"];
+  msgLevel = msg["Level"];
+  if(msg["BinFull"] == 1)
+   msgLastFill = msg["time"];
 }
