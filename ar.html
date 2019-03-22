@@ -9,11 +9,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.1.0/paho-mqtt.js"></script>
 
     <script>
+        
+        var msgLevel = 0;
+        var msgBinId = "";
+        var msgLastFill = "";
         // register our component
         AFRAME.registerComponent('markerhandler', {
             init: function() {
             const animatedMarker = document.querySelector("#animated-marker");
-            //const txtLevel = document.querySelector("#txtLevel");  
+            const entityRing = document.querySelector("#ringBin");  
             const entity = document.querySelector('#animated-model');
             animatedMarker.addEventListener('markerFound', function(ev){
                 console.log('markerFound');
@@ -23,7 +27,9 @@
                     //Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
                     //// every click, we make our model grow in size
                     //entity.setAttribute('scale', scale);
-                    //txtLevel.setAttribute('visible', 'true');
+                    entityRing.setAttribute('text__txtvalue', msgLevel);
+                    entityRing.setAttribute('text__lastfill', 'Last Full On \n' + msgLastFill);
+                    entityRing.setAttribute('text__title', 'Bin ' + msgLastTitle + '\n\n\n\n');
                 }
             });
                 
@@ -48,7 +54,7 @@
         
         //connectMQTT();
     </script>
-    <script src="listener1.js"></script>
+    <script src="listener.js"></script>
     <body style='margin : 0px; overflow: hidden;'>
         <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
       <a-scene arjs="sourceType: webcam; debugUIEnabled: false; trackingMethod: best;">
