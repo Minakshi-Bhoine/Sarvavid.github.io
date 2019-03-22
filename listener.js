@@ -17,6 +17,7 @@ function onConnect() {
   // Once a connection has been made, make a subscription and send a message.
   console.log("onConnect:");
   mqClient.subscribe(mqClient_topic);
+  //getData();
   
  }
 
@@ -32,8 +33,20 @@ function mqClient_onMessageArrived(message) {
   console.log("onMessageArrived:"+message.payloadString);
    //document.write(message.payloadString); 
   var msg = JSON.parse(message.payloadString);
-  msgBinId = msg["Id"];
-  msgLevel = msg["Level"];
-  if(msg["BinFull"] == 1)
-   msgLastFill = msg["time"];
+ if (msg["Type"] == "BIN" && msg["Lid"] == "Closed" ) {
+    msgBinId = msg["Id"];
+    msgLevel = msg["Level"];
+    if(msg["BinFull"] == 1)
+     msgLastFill = msg["time"];
+ }
+}
+
+function getData() {
+ const Http = new XMLHttpRequest();
+ const url='https://jsonplaceholder.typicode.com/posts';
+ Http.open("GET", url);
+ Http.send();
+ Http.onreadystatechange=(e)=>{
+ console.log(Http.responseText)
+}
 }
